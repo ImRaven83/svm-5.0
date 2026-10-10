@@ -19,6 +19,7 @@
     <EnableNETAnalyzers>False</EnableNETAnalyzers>
     <CETCompat>false</CETCompat>
     <Version>2.3.0</Version>
+    <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
   </PropertyGroup>
 
   <ItemGroup>
