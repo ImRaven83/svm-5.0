@@ -296,7 +296,7 @@ namespace Greed
             //} TODO: Reimplement back OR do the check on SVM side
             try
             {
-                if (!Directory.Exists(presetsFolder))
+                if (!Directory.Exists(loaderFolder))
                 {
                     Popup message = new((string)Application.Current.FindResource("MissingLoaderFolder"));
                     message.ShowDialog();
