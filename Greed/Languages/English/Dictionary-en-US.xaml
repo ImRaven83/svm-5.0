@@ -189,7 +189,6 @@ Something went wrong, is there incorrect type in the field or it is empty?</Syst
  <System:String x:Key="Changelog">Changelog</System:String>
  <System:String x:Key="Links">Discord and Website links</System:String>
  <System:String x:Key="Info">Additional Info</System:String>
- <System:String x:Key="Language">Language</System:String>
  <!--Menu Tab Controls-->
  <System:String x:Key="LoadLast">Load last loaded Preset on launch</System:String>
  <System:String x:Key="RunServerAndLauncher">Run Server and Launcher</System:String>

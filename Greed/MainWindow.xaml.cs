@@ -38,7 +38,7 @@ namespace Greed
 
                 ToolTipService.ShowDurationProperty.OverrideMetadata(typeof(DependencyObject),
                 new FrameworkPropertyMetadata(int.MaxValue));
-                LangSwitch(Thread.CurrentThread.CurrentCulture.Name);
+                LoadDefaultLanguage("Languages/English/Dictionary-en-US.xaml", "Greed.Languages.English.HelloEN.rtf", "Greed.Languages.English.faqEN.rtf");
                 if (!File.Exists(Path.Combine(modFolder, "ServerValueModifier.dll")))
                 {
                     Popup message = new((string)Application.Current.FindResource("SVMWrongInstallation"));
@@ -54,11 +54,6 @@ namespace Greed
                 }
                 MainClass.MainConfig mainConfig = new();
                 DataContext = mainConfig;
-        }
-
-        private void LangSwitchClick(object sender, RoutedEventArgs e)
-        {
-            LangSwitch(((MenuItem)sender).Tag.ToString());
         }
 
         private static void LoadRTF(RichTextBox RT, Stream Stream)
@@ -96,48 +91,6 @@ namespace Greed
             }
 
             Presets.SelectedItem = tempfield;
-        }
-
-        public void LangSwitch(string lang)
-        {
-            Thread.CurrentThread.CurrentCulture = new CultureInfo(lang);
-            Thread.CurrentThread.CurrentUICulture = new CultureInfo(lang);
-            switch (lang)
-            {
-                case "ru-RU":
-                case "ru-UA":
-                    LoadLanguage($"Dictionary-ru-RU.xaml", "Russian", "HelloRU.rtf", "faqRU.rtf");
-                    break;
-                case "ko-KR":
-                    LoadLanguage($"Dictionary-ko-KR.xaml", "Korean", "HelloKR.rtf", "faqKR.rtf");
-                    break;
-                case "uk-UA":
-                    LoadLanguage($"Dictionary-uk-UA.xaml", "Ukrainian", "HelloUA.rtf", "faqUA.rtf"); ;
-                    break;
-                case "zh-CHS":
-                case "zh-CN":
-                    LoadLanguage($"Dictionary-zh-CN.xaml", "Chinese", "HelloCN.rtf", "faqCN.rtf");
-                    break;
-                case "es-ES":
-                    LoadLanguage($"Dictionary-es-ES.xaml", "Spanish", "HelloES.rtf", "faqES.rtf");
-                    break;
-                default:
-                    LoadDefaultLanguage($"Languages/English/Dictionary-en-US.xaml", "Greed.Languages.English.HelloEN.rtf", "Greed.Languages.English.faqEN.rtf");
-                    break;
-            }
-        }
-        private void LoadLanguage(string dict, string lang, string hello, string faq)
-        {
-            FileStream dictfs = new(Path.Combine(modFolder, "Languages", lang, dict), FileMode.Open, FileAccess.Read, FileShare.Read);
-            FileStream hellofs = new(Path.Combine(modFolder, "Languages", lang, hello), FileMode.Open, FileAccess.Read, FileShare.Read);
-            FileStream faqfs = new(Path.Combine(modFolder, "Languages", lang, faq), FileMode.Open, FileAccess.Read, FileShare.Read);//this is lame
-            ResourceDictionary resdict = (ResourceDictionary)XamlReader.Load(dictfs);
-            Application.Current.Resources.MergedDictionaries.Add(resdict);
-            CultureInfo customCulture = (CultureInfo)Thread.CurrentThread.CurrentCulture.Clone();
-            customCulture.NumberFormat.NumberDecimalSeparator = ".";
-            Thread.CurrentThread.CurrentCulture = customCulture;
-            LoadRTF(WelcomeMessage, hellofs);
-            LoadRTF(RTF1, faqfs);
         }
 
         private void LoadDefaultLanguage(string dict, string hello, string faq)

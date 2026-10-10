@@ -73,14 +73,6 @@
                 <MenuItem Header="{DynamicResource ThanksTo}" Click="ThanksTo"/>
                 <MenuItem Header="{DynamicResource License}" Click="License"/>
             </MenuItem>
-            <MenuItem Header="{DynamicResource Language}">
-                <MenuItem Header="English" Tag="en-US" Click="LangSwitchClick"/>
-                <MenuItem Header="한국어" Tag="ko-KR" Click="LangSwitchClick"/>
-                <MenuItem Header="简体中文" Tag="zh-CN" Click="LangSwitchClick"/>
-                <MenuItem Header="Русский" Tag="ru-RU" Click="LangSwitchClick"/>
-                <MenuItem Header="Українська" Tag="uk-UA" Click="LangSwitchClick"/>
-                <MenuItem Header="Español" Tag="es-ES" Click="LangSwitchClick"/>
-            </MenuItem>
         </Menu>
         <DockPanel Grid.Column="3" Width="140">
             <Button Width="45"  Click="AppMinimize">

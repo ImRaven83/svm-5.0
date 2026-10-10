@@ -26,70 +26,18 @@
   </ItemGroup>
 
   <ItemGroup>
-	  <Content Include="Languages\Spanish\Dictionary-es-ES.xaml">
-		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </Content>
-    <Content Include="Languages\Chinese\Dictionary-zh-CN.xaml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Languages\Ukrainian\Dictionary-uk-UA.xaml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Languages\Korean\Dictionary-ko-KR.xaml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <EmbeddedResource Include="Languages\English\Dictionary-en-US.xaml" />
-    <Content Include="Languages\Russian\Dictionary-ru-RU.xaml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Languages\Chinese\faqCN.rtf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Languages\Spanish\faqES.rtf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Languages\Korean\faqKR.rtf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Languages\Ukrainian\faqUA.rtf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <EmbeddedResource Include="Languages\English\faqEN.rtf" />
-    <Content Include="Languages\Russian\faqRU.rtf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Languages\Chinese\HelloCN.rtf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <EmbeddedResource Include="Languages\English\HelloEN.rtf" />
-    <Content Include="Languages\Spanish\HelloES.rtf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Languages\Korean\HelloKR.rtf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Languages\Russian\HelloRU.rtf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Languages\Ukrainian\HelloUA.rtf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <EmbeddedResource Include="Resources\HideSpecialIconGrids.dll" />
     <Resource Include="Resources\Cultist1080.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Languages\Chinese\HealthCN.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Languages\Ukrainian\HealthUA.png" />
     <Resource Include="Resources\Icons\icon_button_logout_over.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Languages\Korean\HealthKO.png" />
     <Resource Include="Resources\Forest720.png" />
     <Resource Include="Languages\English\HealthEN.png" />
-    <Resource Include="Languages\Russian\HealthRU.png" />
-    <Resource Include="Languages\Spanish\HealthES.png" />
   </ItemGroup>
 
   <ItemGroup>
