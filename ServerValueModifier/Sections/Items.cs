@@ -90,7 +90,7 @@ namespace ServerValueModifier.Sections
                     basetemplate.Properties.Grids = gridsfilters;
                 }
                 //Time multiplier required to examine an item
-                if (basetemplate.Type == "Item" && basetemplate.Properties.ExamineTime is not null)
+                if (basetemplate.Type == "Item")
                 {
                     basetemplate.Properties.ExamineTime = svmconfig.Items.ExamineTime;
                 }
@@ -115,7 +115,7 @@ namespace ServerValueModifier.Sections
                     basetemplate.Properties.HeatFactorByShot = basetemplate.Properties.HeatFactorByShot * svmconfig.Items.HeatFactor;
                 }
                 //Remove in-raid restrictions
-                if (basetemplate.Type == "Item" && basetemplate.Properties.DiscardLimit is not null && svmconfig.Items.RaidDrop)
+                if (basetemplate.Type == "Item" && svmconfig.Items.RaidDrop)
                 {
                     basetemplate.Properties.DiscardLimit = -1;
                 }
@@ -142,12 +142,12 @@ namespace ServerValueModifier.Sections
                     basetemplate.Properties.MisfireChance *= svmconfig.Items.MisfireChance;
                 }
                 //Examine all items
-                if (basetemplate.Properties.ExaminedByDefault is not null && svmconfig.Items.AllExaminedItems && svmconfig.Items.ExamineKeys)
+                if (svmconfig.Items.AllExaminedItems && svmconfig.Items.ExamineKeys)
                 {
                     basetemplate.Properties.ExaminedByDefault = true;
                 }
                 //If ExamineKeys was off - examine everything except key types, mechanical and keycards.
-                else if (basetemplate.Properties.ExaminedByDefault is not null && SimpleFilter(KeyTypes, basetemplate.Parent) && svmconfig.Items.ExamineKeys) //basetemplate.Parent.Equals(KeyTypes)
+                else if (SimpleFilter(KeyTypes, basetemplate.Parent) && svmconfig.Items.ExamineKeys) //basetemplate.Parent.Equals(KeyTypes)
                 {
                     basetemplate.Properties.ExaminedByDefault = true;
                 }
@@ -197,7 +197,7 @@ namespace ServerValueModifier.Sections
                     }
                 }
                 //Change currency stacks, Euro,Dollars,GPCoins,Roubles.
-                if (basetemplate.Parent == "543be5dd4bdc2deb348b4569" && basetemplate.Properties.StackMaxSize is not null && svmconfig.Items.EnableCurrency)
+                if (basetemplate.Parent == "543be5dd4bdc2deb348b4569" && svmconfig.Items.EnableCurrency)
                 {
                     switch (basetemplate.Id)
                     {
@@ -253,15 +253,9 @@ namespace ServerValueModifier.Sections
                     basetemplate.Properties.Grids = gridsfilters;
                 }
                 //Multiplier of loot experience (picking up in raid)
-                if (basetemplate.Properties.LootExperience is not null)
-                {
-                    basetemplate.Properties.LootExperience = Math.Max((int)(basetemplate.Properties.LootExperience * svmconfig.Items.LootExp),1); //I think it's redundant here, but for sanity purposes we don't want it to be 0
-                }
+                basetemplate.Properties.LootExperience = Math.Max((int)(basetemplate.Properties.LootExperience * svmconfig.Items.LootExp),1); //I think it's redundant here, but for sanity purposes we don't want it to be 0
                 //Multiplier of examination experience
-                if (basetemplate.Properties.ExamineExperience is not null)
-                {
-                    basetemplate.Properties.ExamineExperience = Math.Max((int)(int)(basetemplate.Properties.ExamineExperience * svmconfig.Items.ExamineExp),1);
-                }
+                basetemplate.Properties.ExamineExperience = Math.Max((int)(basetemplate.Properties.ExamineExperience * svmconfig.Items.ExamineExp),1);
                 //Keys Section
                 if (svmconfig.Items.Keys.EnableKeys)
                 {

@@ -147,7 +147,7 @@ namespace ServerValueModifier.Sections
             ///Removing different kind of requirements
             if (svmconfig.Hideout.RemoveConstructionsRequirements || svmconfig.Hideout.RemoveSkillRequirements || svmconfig.Hideout.RemoveTraderLevelRequirements || svmconfig.Hideout.RemoveConstructionsFIRRequirements)
             {
-                Stage Rewriter = new();
+                Stage? Rewriter = null;
                 foreach (HideoutArea area in hideoutTable.Areas)
                 {
                     foreach (Stage stage in area.Stages.Values)
@@ -185,14 +185,14 @@ namespace ServerValueModifier.Sections
                 }
             }
             //Health regen section - Shame on me, i couldn't find a way to go 'foreach' here.
-            BodyHealth healthValues = globals.Configuration.Health.Effects.Regeneration.BodyHealth;
-            healthValues.Stomach.Value *= svmconfig.Hideout.Regeneration.HealthRegen;
-            healthValues.Head.Value *= svmconfig.Hideout.Regeneration.HealthRegen;
-            healthValues.Chest.Value *= svmconfig.Hideout.Regeneration.HealthRegen;
-            healthValues.LeftArm.Value *= svmconfig.Hideout.Regeneration.HealthRegen;
-            healthValues.RightArm.Value *= svmconfig.Hideout.Regeneration.HealthRegen;
-            healthValues.LeftLeg.Value *= svmconfig.Hideout.Regeneration.HealthRegen;
-            healthValues.RightLeg.Value *= svmconfig.Hideout.Regeneration.HealthRegen;
+            var healthValues = globals.Configuration.Health.Effects.Regeneration.BodyHealth; //BodyHealth became a Dictionary<string, BodyHealthValue> in SPT 5.0
+            healthValues["Stomach"].Value *= svmconfig.Hideout.Regeneration.HealthRegen;
+            healthValues["Head"].Value *= svmconfig.Hideout.Regeneration.HealthRegen;
+            healthValues["Chest"].Value *= svmconfig.Hideout.Regeneration.HealthRegen;
+            healthValues["LeftArm"].Value *= svmconfig.Hideout.Regeneration.HealthRegen;
+            healthValues["RightArm"].Value *= svmconfig.Hideout.Regeneration.HealthRegen;
+            healthValues["LeftLeg"].Value *= svmconfig.Hideout.Regeneration.HealthRegen;
+            healthValues["RightLeg"].Value *= svmconfig.Hideout.Regeneration.HealthRegen;
             globals.Configuration.Health.Effects.Regeneration.Energy = svmconfig.Hideout.Regeneration.EnergyRegen;
             globals.Configuration.Health.Effects.Regeneration.Hydration = svmconfig.Hideout.Regeneration.HydrationRegen;
 

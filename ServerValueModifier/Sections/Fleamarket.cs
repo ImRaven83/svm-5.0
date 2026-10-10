@@ -5,6 +5,7 @@ using SPTarkov.Server.Core.Models.Eft.Common;
 using SPTarkov.Server.Core.Models.Enums;
 using SPTarkov.Server.Core.Models.Spt.Config;
 using SPTarkov.Server.Core.Models.Spt.Tables;
+using SPTarkov.Server.Core.Models.Spt.Tables.Globals;
 using SPTarkov.Server.Core.Models.Utils;
 using SPTarkov.Server.Core.Servers;
 using SPTarkov.Server.Core.Services;
@@ -44,16 +45,18 @@ namespace ServerValueModifier.Sections
                 globals.Configuration.RagFair.RatingDecreaseCount = svmconfig.Fleamarket.Rep_loss;
                 if (svmconfig.Fleamarket.OverrideOffers)
                 {
-                    MaxActiveOfferCount offerCount = new();
-                    offerCount.From = -100000;
-                    offerCount.To = 100000;
-                    offerCount.CountForSpecialEditions = svmconfig.Fleamarket.SellOffersAmount;
-                    offerCount.Count = svmconfig.Fleamarket.SellOffersAmount;
+                    RagFairActiveOfferCount offerCount = new()
+                    {
+                        From = -100000,
+                        To = 100000,
+                        CountForSpecialEditions = svmconfig.Fleamarket.SellOffersAmount,
+                        Count = svmconfig.Fleamarket.SellOffersAmount
+                    };
                     globals.Configuration.RagFair.MaxActiveOfferCount = [offerCount];
 
                 }
             }
-            fleaconfig.TieredFlea.Enabled = !svmconfig.Fleamarket.TieredFlea;
+            //Tiered flea pricing was removed from SPT 5.0, svmconfig.Fleamarket.TieredFlea is now a no-op kept for preset compatibility.
             fleaconfig.Dynamic.Pack.ChancePercent = svmconfig.Fleamarket.DynamicOffers.BundleOfferChance;
             fleaconfig.Dynamic.ExpiredOfferThreshold = svmconfig.Fleamarket.DynamicOffers.ExpireThreshold;
             foreach (var uids in fleaconfig.Dynamic.OfferItemCount)

@@ -33,10 +33,7 @@ namespace ServerValueModifier.Sections
                     //var baseitem = templateTable.Items;
                     foreach (var item in templateTable.Items)
                     {
-                        if (item.Value.Properties.InsuranceDisabled is not null)
-                        {
-                            item.Value.Properties.InsuranceDisabled = true;
-                        }
+                        item.Value.Properties.InsuranceDisabled = true;
                     }
                 }
                 else if (svmcfg.Services.ReturnChanceTherapist == 0)
