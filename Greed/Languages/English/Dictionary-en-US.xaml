@@ -96,7 +96,15 @@ Everyone else who provided any kind of support to the project, whether bug repor
  Airdrops
  UA Locale error
  Updated CSM plugin to work with 4.1.3 and above
-     
+
+ 2.3.0 for SPT 5.0.0+
+
+ Reworked:
+ Updated SPTushonka dependencies to SPT 5.0.0 and migrated code to match upstream API changes in the Fleamarket, Hideout, Raids, Items and Services sections (renamed/restructured fields, new required members).
+
+ Removed:
+ Tiered flea pricing toggle - the feature was removed from SPT's ragfair config upstream, the setting is now a no-op kept for preset compatibility.
+
  </System:String>
  <!--MessageBoxes and/or Exception handlers-->
     <System:String xml:space="preserve" x:Key="SVMWrongInstallation">Greed couldn't find ServerValueModifier.dll under SPT_Runtime/user/mods/[SVM] Server Value Modifier
